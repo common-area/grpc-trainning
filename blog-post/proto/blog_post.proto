@@ -1,5 +1,27 @@
 syntax = "proto3";
 
 service BlogpostService {
+	PostText(PostTextRequest) returns PostTextResponse {};
+	GetText(GetTextRequest) returns (GetTextResponse) {};
+}
 
+message PostTextRequest {
+	required int32 text_id = 1;
+	string title = 2;
+	string text = 3;
+}
+
+message PostTextResponse {
+	int32 status  = 1;
+	string status_message = 2;
+}
+
+message GetTextRequest { 
+	int32 text_id = 1;
+}
+
+message GetTextTextResponse {
+	int32 id = 1;
+	int32 status = 2;
+	string status_message = 3;
 }
