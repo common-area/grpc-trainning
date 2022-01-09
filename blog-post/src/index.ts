@@ -13,8 +13,17 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 app.get('/', (req: Request, res: Response) => {
+	res.send("<h1>Hello World</h1>")
+});
+
+app.get('/html/index', (req: Request, res: Response) => {
 	res.sendFile(path.join(__dirname + '/../src/html/index.html'));
+});
+
+app.get('/html/blogpost-page', (req: Request, res: Response) => {
+	res.sendFile(path.join(__dirname + '/../src/html/blogpost-page.html'));
 });
 
 app.listen(PORT, () => console.log(`Running on ${PORT} ⚡`));
